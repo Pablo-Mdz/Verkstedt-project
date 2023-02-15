@@ -4,26 +4,20 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { PopularRepos } from './components/PopularRepos';
 import { Home } from './components/Home';
+import { SavedRepo } from './components/SavedRepo';
 // import axios from 'axios'
 
 
 function App() {
 
 
-    const [repository, setRepository] = useState([])
+    const [dataAPI, setdataAPI] = useState([])
 
-    // useEffect(() => {
-    //     axios
-    //         .get("https://api.github.com/search/repositories?q=created:>2017-01-10&sort=stars&order=desc")
-    //         .then((response) => {
-    //             setRepository(response.data);
-    //         });
-    // }, []);
     useEffect(() => {
 
         fetch('https://api.github.com/search/repositories?q=created:>2017-01-10&sort=stars&order=desc')
             .then((response) => response.json())
-            .then((repository) => setRepository(repository))
+            .then((dataAPI) => setdataAPI(dataAPI))
             .then((data) => console.log(data))
             .catch(error => console.error(error))
     }, []);
@@ -39,7 +33,8 @@ function App() {
                 <Route path="/" element={<Home />} />
             </Routes> */}
             {/* <Home /> */}
-            <PopularRepos repository={repository} />
+            <PopularRepos dataAPI={dataAPI} />
+            <SavedRepo dataAPI={dataAPI} />
 
 
         </div>
