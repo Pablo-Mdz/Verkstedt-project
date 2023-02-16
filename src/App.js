@@ -1,12 +1,8 @@
 
 import './App.css';
-// import { Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { PopularRepos } from './components/PopularRepos';
-import { Home } from './components/Home';
-import { SavedRepo } from './components/SavedRepo';
 import { AboutProject } from './components/AboutProject';
-// import axios from 'axios'
 
 
 function App() {
@@ -27,7 +23,6 @@ function App() {
         <>
             <AboutProject />
             <PopularRepos dataAPI={dataAPI} />
-            {/* <SavedRepo dataAPI={dataAPI} /> */}
 
         </>
     );

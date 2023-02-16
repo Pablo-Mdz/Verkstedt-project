@@ -1,25 +1,21 @@
 import React from "react";
 import {useState, useEffect} from "react";
-// import {SavedRepo} from "./SavedRepo";
 
 export const PopularRepos = ({dataAPI}) => {
 
-
     const [savedRepos, setSavedRepos] = useState([]);
+    const [parceData, setParceData] = useState([]);
 
+    // select each item by id and save un savedRepos
     const handleSaveRepo = (id) => {
         const selected = dataAPI.items.find(
-            (singleData) => singleData.id === id
-        );
+            (singleData) => singleData.id === id);
         localStorage.setItem("savedRepos", JSON.stringify(savedRepos));
-        console.log(savedRepos);
         setSavedRepos([...savedRepos, selected]);
     };
 
-
-    //to take from localstorage when you refresh
-    const [parceData, setParceData] = useState([]);
-
+    
+    //to take data from localstorage when you refresh
     useEffect(() => {
         const refreshedItem = JSON.parse(localStorage.getItem("savedRepos"));
         if (refreshedItem) {
@@ -27,12 +23,11 @@ export const PopularRepos = ({dataAPI}) => {
         }
     }, [savedRepos]);
 
-    console.log("%cEste mensaje es red", "color: red", parceData);
+  
 
     return (
-        <>
-            
-            <div className="relative overflow-x-auto space-">
+        <div className="bg-slate-800">
+            <div className="relative overflow-x-auto  ">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -68,7 +63,6 @@ export const PopularRepos = ({dataAPI}) => {
 
                     {dataAPI.items &&
                         dataAPI.items.map((oneRepo) => {
-                            // console.log(" One item", oneRepo);
                             return (
                                 <>
                                     <tbody>
@@ -83,24 +77,18 @@ export const PopularRepos = ({dataAPI}) => {
                                                 {oneRepo.name}
                                             </td>
                                             <td
-                                                // key={oneRepo.git_url}
                                                 scope="row"
                                                 className="px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700"
                                             >
                                                 {oneRepo.git_url}
                                             </td>
                                             <td
-                                                // key={oneRepo.description}
                                                 scope="row"
                                                 className="px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700"
                                             >
                                                 {oneRepo.description}
                                             </td>
-                                            <td
-                                                // value={oneRepo.stargazers_count}
-                                                // key={oneRepo.stargazers_count}
-                                                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700"
-                                            >
+                                            <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700">
                                                 {oneRepo.stargazers_count}
                                             </td>
 
@@ -108,7 +96,6 @@ export const PopularRepos = ({dataAPI}) => {
                                                 onClick={() =>
                                                     handleSaveRepo(oneRepo.id)
                                                 }
-                                                // type="submit"
                                                 className="px-6 py-4 font-medium text-blue-900 dark:text-blue-500 hover:underline"
                                             >
                                                 Save
@@ -121,11 +108,12 @@ export const PopularRepos = ({dataAPI}) => {
                 </table>
             </div>
 
-            <h2>Favourites Repositories</h2>
-
+            <h1 className="text-center text-slate-400 text-4xl Class Properties p-3">
+                Your favorite repositories from the list{" "}
+            </h1>
+ {/* second table  */}
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    {/* <select value={repoSaved} onChange={handleSelect}> */}
                     <tr>
                         <th
                             scope="col"
@@ -154,7 +142,7 @@ export const PopularRepos = ({dataAPI}) => {
                     </tr>
                 </thead>
             </table>
-
+           
             {parceData.map((savedData) => (
                 <>
                     <tbody>
@@ -184,14 +172,10 @@ export const PopularRepos = ({dataAPI}) => {
                                 {" "}
                                 {savedData.stargazers_count}
                             </td>
-                            {/* <button onClick={handleSaveRepo(savedData)}>
-                                    {" "}
-                                    save
-                                </button> */}
                         </tr>
                     </tbody>
                 </>
             ))}
-        </>
+        </div>
     );
 };
