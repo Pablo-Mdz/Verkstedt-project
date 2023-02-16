@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { PopularRepos } from './components/PopularRepos';
 import { Home } from './components/Home';
 import { SavedRepo } from './components/SavedRepo';
+import { AboutProject } from './components/AboutProject';
 // import axios from 'axios'
 
 
@@ -23,21 +24,12 @@ function App() {
     }, []);
 
     return (
-        <div className='' >
-            <h1>Coding Challenge</h1>
-
-            {/* <Link to="/">
-                <h1>Home</h1>
-            </Link> */}
-            {/* <Routes>
-                <Route path="/" element={<Home />} />
-            </Routes> */}
-            {/* <Home /> */}
+        <>
+            <AboutProject />
             <PopularRepos dataAPI={dataAPI} />
-            <SavedRepo dataAPI={dataAPI} />
+            {/* <SavedRepo dataAPI={dataAPI} /> */}
 
-
-        </div>
+        </>
     );
 }
 
