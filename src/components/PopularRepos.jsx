@@ -60,7 +60,11 @@ export const PopularRepos = ({ dataAPI }) => {
                 <tbody key={oneRepo.id}>
                   <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 '>
                     <td className='px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700'>{oneRepo.name}</td>
-                    <td className='px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700'>{oneRepo.git_url}</td>
+                    <td className='px-2 py-4 font-medium  whitespace-nowrap dark:text-blue-500 hover:underline border border-slate-700'>
+                      <a target='_blank' rel='noreferrer' href={oneRepo.git_url.replace('git://', '').replace('.git', '')}>
+                        {oneRepo.git_url.replace('git://', '').replace('.git', '')}
+                      </a>
+                    </td>
                     <td className='px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700'>{oneRepo.description}</td>
                     <td className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700'>{oneRepo.stargazers_count}</td>
                     <td>
