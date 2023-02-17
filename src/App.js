@@ -15,16 +15,16 @@ function App() {
         fetch('https://api.github.com/search/repositories?q=created:>2017-01-10&sort=stars&order=desc')
             .then((response) => response.json())
             .then((dataAPI) => setdataAPI(dataAPI))
-            .then((data) => console.log(data))
             .catch(error => console.error(error))
     }, []);
 
     return (
-        <>
+        <div cclassName='container mx-auto'>
+
             <AboutProject />
             <PopularRepos dataAPI={dataAPI} />
 
-        </>
+        </div>
     );
 }
 
