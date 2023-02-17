@@ -19,7 +19,7 @@ function App() {
     }, []);
 
     return (
-        <div cclassName='container mx-auto'>
+        <div className='px-auto mx-auto'>
 
             <AboutProject />
             <PopularRepos dataAPI={dataAPI} />

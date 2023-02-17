@@ -87,7 +87,7 @@ export const PopularRepos = ({ dataAPI }) => {
             <th className='border-spacing-x-2 p-3 border-separate '>github URL</th>
             <th className='border-spacing-x-2 border-separate px-18 '>Description</th>
             <th className='border-spacing-x-2 border-separate pr-10 '>Stars</th>
-            <th scope='col' className='px-6 py-3'>
+            <th  className='px-6 py-3'>
               Action
             </th>
           </tr>
