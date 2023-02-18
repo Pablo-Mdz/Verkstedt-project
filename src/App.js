@@ -16,6 +16,7 @@ function App() {
             .then((response) => response.json())
             .then((dataAPI) => setdataAPI(dataAPI))
             .catch(error => console.error(error))
+            console.log(dataAPI)
     }, []);
 
     return (
