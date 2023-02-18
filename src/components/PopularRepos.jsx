@@ -56,7 +56,6 @@ export const PopularRepos = ({ dataAPI }) => {
 
           {dataAPI.items &&
             dataAPI.items.map((oneRepo) => {
-            //   const urlGithub = oneRepo.html_url.replace('verkstedt-cigoy.netlify.app/', '').replace('git://', '').replace('.git', '')
               return (
                 <tbody key={oneRepo.id}>
                   <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 '>
