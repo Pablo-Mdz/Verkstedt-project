@@ -28,8 +28,11 @@ export const PopularRepos = ({ dataAPI }) => {
     setSavedRepos(deleteRepo)
     localStorage.setItem('savedRepos', JSON.stringify(deleteRepo))
   }
-  const emptyStar = '../../public/star-empty.png'
-  const fullStar = '../../public/star-full.png'
+
+  const emptyStar = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/800px-Five-pointed_star.svg.png'
+  const fullStar = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/2153px-Star_icon_stylized.svg.png'
+  const unStar = 'https://pbs.twimg.com/profile_images/1064391458269134849/Pq7SFgCy_400x400.jpg'
+
   return (
     <div className='bg-white '>
       <div className='relative overflow-x-auto  '>
@@ -60,7 +63,7 @@ export const PopularRepos = ({ dataAPI }) => {
                     <td className='py-3 px-6 border-b border-gray-200'>
                       <button onClick={() => handleSaveRepo(oneRepo.id)}>
                         {/* className='bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-700' */}
-                        <img src={parceData.id ? emptyStar : fullStar} alt='empty star' />
+                        <img className='w-14' src={savedRepos.includes(oneRepo.id) ? fullStar : emptyStar} alt=' star' />
                       </button>
                     </td>
                   </tr>
@@ -94,8 +97,8 @@ export const PopularRepos = ({ dataAPI }) => {
               <td className='py-3 px-6 border-b border-gray-200'>{savedData.language}</td>
               <td className='py-3 px-6 border-b border-gray-200'>100</td>
               <td className='py-3 px-6 border-b border-gray-200'>
-                <button onClick={() => handleRemoveRepo(savedData.id)} className='bg-red-500 text-white rounded-md py-2 px-4 hover:bg-blue-700'>
-                  Unstar
+                <button onClick={() => handleRemoveRepo(savedData.id)}>
+                  <img className='w-8' src={unStar} alt=' unStar' />
                 </button>
               </td>
             </tr>
