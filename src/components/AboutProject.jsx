@@ -3,9 +3,9 @@ import React from 'react'
 export const AboutProject = () => {
     
   return (
-    <div className='bg-slate-800 py-4'>
-      <h1 className='text-center text-slate-200 text-6xl Class Properties underline p-3'>Coding Challenge</h1>
-      <div className='text-slate-400 text-2xl pl-3 '>
+    <div className=' py-4'>
+      <h1 className='text-center text-slate-800 text-6xl Class Properties underline p-3'>Coding Challenge</h1>
+      <div className='text-slate-700 text-2xl pl-3 '>
         <ul>
           <li>
             Company:
@@ -27,7 +27,7 @@ export const AboutProject = () => {
             </a>
           </li>
         </ul>
-        <h1 className='text-center text-slate-200 text-4xl Class Properties p-3 mt-6 mb-3'>A list of the most popular repositories on Github of the last week</h1>
+        <h1 className='text-center text-slate-800 text-4xl Class Properties p-3 mt-6 mb-3'>A list of the most popular repositories on Github of the last week</h1>
       </div>
     </div>
   )
