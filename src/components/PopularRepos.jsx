@@ -29,6 +29,12 @@ export const PopularRepos = ({ dataAPI }) => {
     localStorage.setItem('savedRepos', JSON.stringify(deleteRepo))
   }
 
+  //   const handleLanguage = (language) => {
+  //     let languagesRepos = [...savedRepos].filter(repo=>repo.language === language);
+  //     setSavedRepos(languagesRepos)
+  //     localStorage.setItem('savedRepos', JSON.stringify(languagesRepos))
+  //   }
+
   const emptyStar = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Five-pointed_star.svg/800px-Five-pointed_star.svg.png'
   const fullStar = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Star_icon_stylized.svg/2153px-Star_icon_stylized.svg.png'
   const unStar = 'https://pbs.twimg.com/profile_images/1064391458269134849/Pq7SFgCy_400x400.jpg'
@@ -43,7 +49,7 @@ export const PopularRepos = ({ dataAPI }) => {
               <th className='py-4 px-6'> github URL</th>
               <th className='py-4 px-6'>Language</th>
               <th className='py-4 px-6'>Stars</th>
-              <th className='py-4 px-6'></th>
+              <th className='py-4 px-6'>Save</th>
             </tr>
           </thead>
 
@@ -59,13 +65,23 @@ export const PopularRepos = ({ dataAPI }) => {
                       </a>
                     </td>
                     <td className='py-3 px-6 border-b border-gray-200'>{oneRepo.language}</td>
-                    <td className='py-3 px-6 border-b border-gray-200'>100</td>
+                    <td className='py-3 px-6 border-b border-gray-200'>{oneRepo.stargazers_count}</td>
                     <td className='py-3 px-6 border-b border-gray-200'>
                       <button onClick={() => handleSaveRepo(oneRepo.id)}>
                         {/* className='bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-700' */}
-                        <img className='w-12' src={savedRepos.includes(oneRepo.id) ? fullStar : emptyStar} alt=' star' />
+                        <img className='w-10' src={savedRepos.includes(oneRepo.id) ? fullStar : emptyStar} alt=' star' />
                       </button>
                     </td>
+                    {/* <td className='py-3 px-6 border-b border-gray-200'>
+                      {oneRepo.language &&
+                  <button 
+                    className="bg-gray-200 text-black px-3 py-1 rounded-md inline-block mt-4 absolute bottom-6 left-7"
+                    onClick={()=>handleLanguage(oneRepo.language)}
+                  >
+                    {oneRepo.language}
+                  </button>
+                }  
+                </td> */}
                   </tr>
                 </tbody>
               )
@@ -81,7 +97,7 @@ export const PopularRepos = ({ dataAPI }) => {
             <th className='py-4 px-6'> github URL</th>
             <th className='py-4 px-6'>Language</th>
             <th className='py-4 px-6'>Stars</th>
-            <th className='py-4 px-6'></th>
+            <th className='py-4 px-6'>Unsave</th>
           </tr>
         </thead>
 
