@@ -1,6 +1,7 @@
 import React from 'react'
 
 export const AboutProject = () => {
+    
   return (
     <div className='bg-slate-800 py-4'>
       <h1 className='text-center text-slate-200 text-6xl Class Properties underline p-3'>Coding Challenge</h1>

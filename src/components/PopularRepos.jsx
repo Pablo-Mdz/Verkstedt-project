@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react'
-import { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 export const PopularRepos = ({ dataAPI }) => {
+    
   const [savedRepos, setSavedRepos] = useState(JSON.parse(localStorage.getItem('savedRepos')) || [])
 
   const parceData = useMemo(() => {
@@ -26,8 +26,8 @@ export const PopularRepos = ({ dataAPI }) => {
       return
     }
     const deleteRepo = savedRepos.filter((elementToDelete) => elementToDelete !== id)
-    localStorage.setItem('savedRepos', JSON.stringify(deleteRepo))
     setSavedRepos(deleteRepo)
+    localStorage.setItem('savedRepos', JSON.stringify(deleteRepo))
   }
 
   return (
@@ -95,7 +95,12 @@ export const PopularRepos = ({ dataAPI }) => {
           <tbody key={savedData.id}>
             <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 '>
               <td className='px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700'>{savedData.name}</td>
-              <td className='px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700'>{savedData.git_url}</td>
+              <td className='px-2 py-4 font-medium text-blue-900 whitespace-nowrap dark:text-blue-500 hover:underline border border-slate-700'>
+                <a target='_blank' rel='noreferrer' href={savedData.html_url}>
+                  {savedData.html_url}
+                </a>
+              </td>
+
               <td className='px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700'>{savedData.description}</td>
               <td className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border border-slate-700'> {savedData.stargazers_count}</td>
               <td>

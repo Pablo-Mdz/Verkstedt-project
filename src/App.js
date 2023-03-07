@@ -12,11 +12,10 @@ function App() {
 
     useEffect(() => {
 
-        fetch('https://api.github.com/search/repositories?q=created:>2017-01-10&sort=stars&order=desc')
+        fetch('https://api.github.com/search/repositories?q=created:>2023-02-01&sort=stars&order=desc')
             .then((response) => response.json())
             .then((dataAPI) => setdataAPI(dataAPI))
             .catch(error => console.error(error))
-            console.log(dataAPI)
     }, []);
 
     return (
