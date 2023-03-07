@@ -60,7 +60,7 @@ export const PopularRepos = ({ dataAPI }) => {
                     <td className='py-3 px-6 border-b border-gray-200'>
                       <button onClick={() => handleSaveRepo(oneRepo.id)}>
                         {/* className='bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-700' */}
-                        <img src={oneRepo.id ? emptyStar : fullStar} alt='empty star' />
+                        <img src={parceData.id ? emptyStar : fullStar} alt='empty star' />
                       </button>
                     </td>
                   </tr>
